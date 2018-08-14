@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace = "fragments :: head"></head>
+<body>
+    <nav th:replace = "fragments :: nav"></nav>
+
+    <div th:if = "${user.alerts.size() == 0}" class = "container">
+        <div class = "row alert-padding-top">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body no-alerts text-center">
+                        <h5 class="card-title">No Alerts</h5>
+                        <p class="card-text">Create an Alert now!</p>
+                        <a href="/users/me/create" class="btn btn-info">New Alert</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "container">
+        <div class="row">
+            <div th:each = "alert : ${user.alerts}" class="col-sm-6 alert-padding-top">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text = "${alert.symbol}"></h5>
+                        <p th:if = "${alert.greater == true}" class="card-text" th:text = "${'Alert when price is above ' + alert.formatPrice}"></p>
+                        <p th:if = "${alert.greater == false}" class="card-text" th:text = "${'Alert when price is below ' + alert.formatPrice}"></p>
+                        <form th:method = "DELETE" th:action = "@{/users/me}">
+                            <input name = "id" th:value = "${alert.id}" hidden/>
+                            <button type = "submit" class = "btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+nav {
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.1);
+}
+html {
+  background-color: #D3D3D3;
+}
+body {
+  background-color: #D3D3D3;
+}
+.content {
+  padding: 30px 0px 10px 20px;
+  border-bottom: 1px solid grey;
+  background-color: green;
+  border-radius: 5%;
+  height: 200px;
+}
+.large-font {
+  font-size: 20px;
+}
+.alert-padding {
+  padding-right: 20px;
+}
+.alert-padding-top {
+  padding-top: 50px;
+}
+.no-alerts {
+  height: 200px;
+}
+.user-padding {
+  padding-right: 100px;
+}
+.form-card {
+  margin-top: 100px;
+  width: 700px;
+}
+.form-form {
+  margin-top: 30px;
+}
+.form-group {
+  width: 100%;
+}
+.settings-title {
+  font-size: 24px;
+}
+.delete-btn {
+  margin-top: 20px;
+}
+.pointer {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .form-card {
+    width: 100%;
+  }
+}

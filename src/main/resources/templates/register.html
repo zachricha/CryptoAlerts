@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace = "fragments :: head"></head>
+<body>
+    <nav th:replace = "fragments :: nav"></nav>
+
+    <div class = "container form-card">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class = "text-center display-4">Register</h1>
+                    <form method = "POST" th:action = "@{/register}" th:object = "${user}" class = "col-sm-12 col-md-8 col-lg-8 form-form mx-auto">
+                        <small th:text = "${confirmationMessage}" class = "text-success"></small>
+                        <small th:text = "${alreadyRegisteredMessage}" class = "text-danger"></small>
+                        <div class="form-group">
+                            <label for="inputFirstName">First Name</label>
+                            <input type="text" th:field = "*{firstName}" th:value = "${user.firstName}" class="form-control" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="Enter first name">
+                            <small th:errors="*{firstName}" id="firstNameHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputLastName">Last Name</label>
+                            <input type="text" th:field = "*{lastName}" th:value = "${user.LastName}" class="form-control" id="inputLastName" aria-describedby="lastNameHelp" placeholder="Enter last name">
+                            <small th:errors="*{lastName}" id="lastNameHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Email Address</label>
+                            <input type="email" th:field = "*{email}"th:value = "${user.email}" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small th:errors="*{email}" id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <button type="submit" class="btn btn-info">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace = "fragments :: head"></head>
+<body>
+    <nav th:replace = "fragments :: nav"></nav>
+
+    <div class = "container form-card">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class = "text-center display-4">Login</h1>
+                    <form class = "col-sm-12 col-md-8 col-lg-8 form-form mx-auto" method = "POST" th:action = "@{/login}" th:object = "${user}">
+                        <small th:text = "${loginFailure}" class = "text-danger"></small>
+                        <div class="form-group">
+                            <label for="inputEmail">Email address</label>
+                            <input type="email" name = "username" class="form-control" id="inputEmail" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" name = "password" class="form-control" id="inputPassword" placeholder="Enter password">
+                        </div>
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

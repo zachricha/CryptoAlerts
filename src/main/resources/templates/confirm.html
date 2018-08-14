@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace = "fragments :: head"></head>
+<body>
+    <nav th:replace = "fragments :: nav"></nav>
+
+    <div class = "container form-card">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class = "text-center display-4">Create Account</h1>
+                    <small th:text = "${passwordMsg}" class = "text-danger"></small>
+                    <small th:text = "${passwordSuccess}" class = "text-success"></small>
+                    <form th:if = "${passwordSet == null}" method = "POST" th:action = "@{/confirm}" class = "col-sm-12 col-md-8 col-lg-8 form-form mx-auto">
+                        <input type = "hidden" name = "token" th:value = "${confirmationToken}" />
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" name = "password" class="form-control" id="inputPassword" placeholder="Enter password">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputConfirmPassword">Confirm Password</label>
+                            <input type="password" name = "confirmPassword" class="form-control" id="inputConfirmPassword" placeholder="Confirm password">
+                        </div>
+                        <button type="submit" class="btn btn-info">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
